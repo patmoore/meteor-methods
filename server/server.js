@@ -10,6 +10,12 @@
         return "<strong><a href='" + link + "'>" + match + "</a></strong>";
       };
 
+      var bogus;
+
+      for (var i = 0; i < 2000000000; i++) {
+        bogus = i;
+      }
+
       return msg.replace(re, parseForUsers);
     }
   });

@@ -21,7 +21,9 @@
       form.reset();
       input.focus();
 
-      Session.set("message", fields.message);
+      Meteor.call("createMessage", fields, function (err, message) {
+        Session.set("message", message);
+      });
     }
   });
 

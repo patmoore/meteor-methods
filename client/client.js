@@ -10,6 +10,12 @@
     return fields;
   }
 
+  Meteor.methods({
+    createMessage: function (fields) {
+      Session.set("message", fields.message);
+    }
+  });
+
   Template.add_message.events({
     "submit form": function (e, tmpl) {
       e.preventDefault();

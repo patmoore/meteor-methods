@@ -22,7 +22,12 @@
       input.focus();
 
       Meteor.call("createMessage", fields, function (err, message) {
-        Session.set("message", message);
+        if (err) {
+          Session.set("message", err.error + ": " + err.reason);
+          console.log(err);
+        } else {
+          Session.set("message", message); 
+        }
       });
     }
   });
